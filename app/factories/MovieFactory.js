@@ -1,4 +1,11 @@
 						// *****MOVIE HISTORY INSTRUCTIONS*****
+app.factory ("MovieHistory", function () {
+
+console.log("this is movie factory");
+
+
+
+});
 
 // Must have the ability to register a user in Firebase
 // Must have the ability to log in
@@ -18,8 +25,8 @@
 
 // Each movie must have the following properties:
 	// The following properties will be in an object associated with the movie and its title. This should be the same format as the JSON of the API where we are getting this information.
-	
-		// Movie name 
+
+		// Movie name
 		// Year released
 		// An array of major actors
 		// An integer rating of 1-5
