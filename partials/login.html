@@ -1,24 +1,39 @@
+ <nav class = "navBar" ng-controller = "LoginCtrl">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Movies</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a ng-href="#">Home</a></li>
+        <li><a ng-href="#">Movies</a></li>
+        <li><a ng-href="#">Search</a></li>
+      </ul>
+    </div>
+  </nav>
+
 <section>
   <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <div class="row">
-          <div class="input-field col s12">
-            <label for="email">Email</label>
-            <input ng-model = "account.email" class="email" type="email" class="validate">
+            <div class="input-field col s12">
+              <label for="email">Email</label>
+              <input ng-model="account.email" class="email" type="email" class="validate">
+            </div>
           </div>
-        </div>
           <div class="row">
             <div class="input-field col s12">
               <label for="password">Password</label>
-              <input ng-model = "account.password" class="password" type="password" class="validate">
+              <input ng-model="account.password" class="password" type="password" class="validate">
+              <div>
+                <button class="waves-effect waves-light btn-large" ng-click="login()">Login</button>
+                <button class="waves-effect waves-light btn-large" ng-click="register()">Register
+                </button>
+              </div>
             </div>
-            <button class="waves-effect waves-light btn-large" ng-click = "login()" >Login</button>
-            <button class="waves-effect waves-light btn-large" ng-click = "register()">Register</a></button>
           </div>
         </div>
       </div>
     </form>
   </div>
 </section>
+
