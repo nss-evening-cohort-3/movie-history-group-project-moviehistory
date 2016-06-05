@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-App= "MovieHistory">
+	<div ng-include= "partials/movie-nav.html" ng-controller = "MovieNavCtrl">
+	
+	</div>
+	<div ng-view>
+	
+	</div>
+
+	<h2>Some stuff</h2>
+
+ <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+  <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="app/factories/MovieFactory.js"></script>
+  <script type="text/javascript" src="app/controllers/MovieNavCtrl.js"></script>
+
+</body>
+</html>

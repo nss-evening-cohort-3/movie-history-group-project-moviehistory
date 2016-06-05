@@ -1,0 +1,20 @@
+{
+  "name": "lib",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^3.0.3",
+    "angular": "^1.5.6",
+    "angularfire": "^2.0.1",
+    "angular-route": "^1.5.6"
+  }
+}
