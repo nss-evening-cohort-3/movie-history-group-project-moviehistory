@@ -14,10 +14,10 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 app.config(function($routeProvider) {
   $routeProvider.
   when('/', {
-    templateUrl: 'partials/login.html',
-    controller: "LoginCtrl"
+    templateUrl: 'movie-nav.html',
+    controller: "MovieNavCtrl"
   }).
-  when('/logout', {
+  when('/login', {
     templateUrl: 'partials/login.html',
     controller: "LoginCtrl"
   }).
