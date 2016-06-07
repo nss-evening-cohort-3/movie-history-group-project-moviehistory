@@ -1,0 +1,22 @@
+<div>
+		<input type="text" placeholder= "search movies"  class= "text" ng-model = "movie">
+		<button class="btn" ng-click = "search(movie)">Search</button>
+</div>
+
+
+
+<!-- Just like you have been building the string before -->
+<!-- Ng-repeat references the item within the object. The item can be whatever generic name, but have it relate to what you are getting from the object referenced. -->
+
+<div ng-repeat = "movie in listItems.Search">
+	<div class="row">
+			<div>
+			<h4>{{movie.Title}}({{movie.Year}})</h4>
+			</div>
+			<img src="{{movie.Poster}}">
+			<div>
+			<button>Add to WatchList</button>
+			</div>
+	</div>
+	
+</div>

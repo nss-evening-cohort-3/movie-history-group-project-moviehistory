@@ -12,3 +12,5 @@ app.factory("MovieFactory", function($q, $http, APIURL){
 	}
 	return{ getMovies:getMovies}
 });
+
+
