@@ -14,7 +14,7 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 		let user = AuthFactory.getUser();
 		let itemList = [];
 		return $q(function(resolve, reject){
-			$http.get(`${firebaseURL}.json`)
+			$http.get(`${firebaseURL}.json?orderBy="uid"&equalTo="${user.uid}"`)
 			.success(function(items) {
           Object.keys(items).forEach(function(key) {
             items[key].id = key;
