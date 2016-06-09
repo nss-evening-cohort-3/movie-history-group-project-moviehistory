@@ -2,6 +2,11 @@
 		<input type="text" placeholder= "search movies"  class= "text" ng-model = "movie">
 		<button class="btn" ng-click = "search(movie)">Search</button>
 </div>
+<div ng-hide="hideFire">
+		<input type="text" placeholder= "search your movies"  class= "text" ng-model = "filter">
+		<button class="btn" ng-click = "toWatch()">To Watch List</button>
+		<button class="btn" ng-click = "watched()">Watched List</button>
+</div>
 
 
 
@@ -15,7 +20,7 @@
 			</div>
 			<img src="{{movie.Poster}}">
 			<div>
-			<button>Add to WatchList</button>
+			<button ng-click="addToFirebase(movie)">Add to WatchList</button>
 			</div>
 	</div>
 
