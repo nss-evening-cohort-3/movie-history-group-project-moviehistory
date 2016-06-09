@@ -2,6 +2,7 @@ app.controller("MovieNavCtrl", function($scope, $routeParams, MovieFactory){
 
   $scope.listItems = {};
   $scope.hideFire = true;
+  $scope.hideFirebase = true;
 
   $scope.toWatch = function() {
     MovieFactory.getFirebaseMovies().then(function(stuff) {
@@ -25,8 +26,12 @@ app.controller("MovieNavCtrl", function($scope, $routeParams, MovieFactory){
   $scope.addToFirebase = function(movie) {
     console.log(movie)
     MovieFactory.addToFire(movie).then(function() {
-      $scope.hideFire = false
+      $scope.hideFirebase = false
     })
   }
-
+  $scope.deleteFromFire = function(id) {
+    MovieFactory.deleteFromFirebase(id).then(function() {
+      $scope.toWatch()
+    })
+  }
 })

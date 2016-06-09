@@ -12,21 +12,20 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 	}
 	var getFirebaseMovies = function () {
 		let user = AuthFactory.getUser();
-		let movie = [];
+		let itemList = [];
 		return $q(function(resolve, reject){
 			$http.get(`${firebaseURL}.json`)
-			.success(
-				function(movies){
-					Object.keys(movie).forEach(function(key) {
-	          movie[key].id = key;
-	          movies.push(movie[key]);
-	        });
-				resolve(movies)
-			},	function(error){
-				reject(error)
-		});
-	});
-	}
+			.success(function(items) {
+          Object.keys(items).forEach(function(key) {
+            items[key].id = key;
+            itemList.push(items[key]);
+          });
+          resolve(itemList);
+        }).error(function(error){
+        reject(error);
+        });
+    });
+  };
 	var addToFire = function(movie) {
 		let user = AuthFactory.getUser();
 		movie.uid = user.uid
@@ -35,7 +34,7 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 				Title: movie.Title,
 				Year: movie.Year,
 				Poster: movie.Poster,
-				Stars: null,
+				Stars: 0,
 				uid: movie.uid}))
 			.success(
 				function(movies){
@@ -45,7 +44,15 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 		});
 	});
 	}
-	return{ getMovies:getMovies, getFirebaseMovies:getFirebaseMovies, addToFire:addToFire}
+	deleteFromFirebase = function(id) {
+		return $q(function(resolve, reject) {
+      $http.delete(`${firebaseURL}${id}.json`)
+        .success(function(thingy) {
+          resolve(thingy);
+        });
+    });
+	}
+	return{ getMovies:getMovies, getFirebaseMovies:getFirebaseMovies, addToFire:addToFire, deleteFromFirebase:deleteFromFirebase}
 });
 
 

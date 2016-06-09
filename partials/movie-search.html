@@ -2,7 +2,7 @@
 		<input type="text" placeholder= "search movies"  class= "text" ng-model = "movie">
 		<button class="btn" ng-click = "search(movie)">Search</button>
 </div>
-<div ng-hide="hideFire">
+<div ng-hide="hideFirebase">
 		<input type="text" placeholder= "search your movies"  class= "text" ng-model = "filter">
 		<button class="btn" ng-click = "toWatch()">To Watch List</button>
 		<button class="btn" ng-click = "watched()">Watched List</button>
@@ -14,15 +14,15 @@
 <!-- Ng-repeat references the item within the object. The item can be whatever generic name, but have it relate to what you are getting from the object referenced. -->
 
 <div ng-repeat = "movie in listItems">
-	<div class="row">
+	<div class="col s4">
 			<div>
 			<h4>{{movie.Title}}({{movie.Year}})</h4>
 			</div>
 			<img src="{{movie.Poster}}">
 			<div>
 			<button ng-show="hideFire" ng-click="addToFirebase(movie)">Add to WatchList</button>
-			<select ng-hide="hideFire" value="movie.Stars">
-				<option value=null>STARS!</option>
+			<select ng-hide="hideFire" value="{{movie.Stars}}">
+				<option value=0>STARS!</option>
 				<option value=5>5 Stars</option>
 				<option value=4>4 Stars</option>
 				<option value=3>3 Stars</option>
