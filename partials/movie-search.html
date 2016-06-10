@@ -13,15 +13,23 @@
 <!-- Just like you have been building the string before -->
 <!-- Ng-repeat references the item within the object. The item can be whatever generic name, but have it relate to what you are getting from the object referenced. -->
 
-<div ng-repeat = "movie in listItems.Search">
+<div ng-repeat = "movie in listItems">
 	<div class="row">
 			<div>
 			<h4>{{movie.Title}}({{movie.Year}})</h4>
 			</div>
 			<img src="{{movie.Poster}}">
 			<div>
-			<button ng-click="addToFirebase(movie)">Add to WatchList</button>
+			<button ng-show="hideFire" ng-click="addToFirebase(movie)">Add to WatchList</button>
+			<select ng-hide="hideFire" value="movie.Stars">
+				<option value=null>STARS!</option>
+				<option value=5>5 Stars</option>
+				<option value=4>4 Stars</option>
+				<option value=3>3 Stars</option>
+				<option value=2>2 Stars</option>
+				<option value=1>1 Stars</option>
+			</select>
+			<button ng-hide="hideFire" ng-click="deleteFromFire(movie.id)">Delete</button>
 			</div>
 	</div>
-
 </div>
