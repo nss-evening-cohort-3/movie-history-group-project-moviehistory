@@ -35,6 +35,7 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 				Year: movie.Year,
 				Poster: movie.Poster,
 				Stars: 0,
+        isWatched: false,
 				uid: movie.uid}))
 			.success(
 				function(movies){
@@ -44,7 +45,7 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
 		});
 	});
 	}
-	deleteFromFirebase = function(id) {
+	var deleteFromFirebase = function(id) {
 		return $q(function(resolve, reject) {
       $http.delete(`${firebaseURL}${id}.json`)
         .success(function(thingy) {
@@ -52,7 +53,19 @@ app.factory("MovieFactory", function($q, $http, APIURL, AuthFactory, firebaseURL
         });
     });
 	}
-	return{ getMovies:getMovies, getFirebaseMovies:getFirebaseMovies, addToFire:addToFire, deleteFromFirebase:deleteFromFirebase}
+  var isWatched = function(movie) {
+    return $q(function(resolve, reject){
+      $http.put(`${firebaseURL}${movie.id}.json`, JSON.stringify(movie))
+      .success(
+        function(movies){
+        resolve(movies)
+      },  function(error){
+        reject(error)
+    });
+  });
+  }
+
+	return{ getMovies:getMovies, getFirebaseMovies:getFirebaseMovies, addToFire:addToFire, deleteFromFirebase:deleteFromFirebase, isWatched:isWatched}
 });
 
 

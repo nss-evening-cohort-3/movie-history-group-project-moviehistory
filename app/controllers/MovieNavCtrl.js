@@ -4,6 +4,14 @@ app.controller("MovieNavCtrl", function($scope, $routeParams, MovieFactory){
   $scope.hideFire = true;
   $scope.hideFirebase = true;
 
+  $scope.changeStars = function (movie) {
+    movie.isWatched = true;
+    console.log("movie", movie);
+    MovieFactory.isWatched(movie).then(function() {
+      $scope.toWatch();
+    })
+  }
+
   $scope.toWatch = function() {
     $scope.listItems = {};
     MovieFactory.getFirebaseMovies().then(function(stuff) {

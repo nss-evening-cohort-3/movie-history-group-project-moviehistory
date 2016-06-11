@@ -21,8 +21,8 @@
 			<img src="{{movie.Poster}}">
 			<div>
 			<button ng-show="hideFire" ng-click="addToFirebase(movie)">Add to WatchList</button>
-			<div class="input-field">
-				<select>
+			<div class="input-field col s4" ng-hide="hideFire">
+				<select value="{{movie.Stars}}" ng-change="changeStars(movie)" ng-model="movie.Stars">
 					<option value=0>STARS!</option>
 					<option value=5>5 Stars</option>
 					<option value=4>4 Stars</option>
