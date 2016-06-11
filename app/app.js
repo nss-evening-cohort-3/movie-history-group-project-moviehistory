@@ -1,6 +1,6 @@
 var app = angular.module('MovieHistory', ["ngRoute"])
 
-  	.constant("firebaseURL", "https://moviehistory07.firebaseio.com/")
+  	.constant("firebaseURL", "https://moviehistory07.firebaseio.com/stuff/")
 	.constant("APIURL", "http://www.omdbapi.com/?")
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
